@@ -23,25 +23,22 @@
 			<input  class="btn "type="submit" name="sbmt" value="convert to euro's">
 			</div>
 			<?php
-if (isset($_GET['sbmt']))
-{
-	$input = $_GET['input'];
-	$dd_dropdown =$_GET['dropdown'];
-	if($dd_dropdown=='usd'){
-		$dd_output =$input * 0.81;
-		echo "<h3>$input dollars converts to $dd_output  euro</h3>";
-		
-	}
-	else if($dd_dropdown =='yen'){
-		$dd_output =$input * 0.0079;
-		echo "<h3>$input yen converts to $dd_output  euro</h3>";
-	}
-	else if ($dd_dropdown=='gdp'){
-		$dd_output =$input * 1.1;
-		echo "<h3>$input pounds converts to $dd_output  euro</h3>";
-	}	
-}
-?>
+				$dd_output="";
+				if (isset($_GET['sbmt'])){
+					$input =(float)$_GET['input'];
+					$dd_dropdown =$_GET['dropdown'];
+					if($dd_dropdown=='usd'){
+						$dd_output =$input * 0.81;
+						echo "<h3>$input dollars converts to $dd_output  euro</h3>";
+					} else if($dd_dropdown =='yen'){
+						$dd_output =$input * 0.0079;
+						echo "<h3>$input yen converts to $dd_output  euro</h3>";
+					} else if ($dd_dropdown=='gdp'){
+						$dd_output =$input * 1.1;
+						echo "<h3>$input pounds converts to $dd_output  euro</h3>";
+					}	
+				}
+		?>
 	</div>
 
 </body>
